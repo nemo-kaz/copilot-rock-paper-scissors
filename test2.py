@@ -1,3 +1,4 @@
+
 # じゃんけんゲームを書いてください
 import random
 import unittest
@@ -26,7 +27,7 @@ def judge(player_hand, computer_hand):
     else:
         return "グー、チョキ、パーのいずれかを入力してください。"
 
-# judge 関するを使ってじゃんけんをする main 関数を定義
+# ロジックを全てハンドルするmain関数を定義
 def main():
     # プレイヤーの手を入力
     player_hand = input("じゃんけんをしましょう！(グー、チョキ、パー)：")
@@ -39,16 +40,15 @@ def main():
     # judge関数を呼び出して結果を表示
     print(judge(player_hand, computer_hand))
 
-# 9通りのテストケースを書いてみる
-class TestRockPaperScissors(unittest.TestCase):
-    def test_judge(self):
+    # 9通りのテストケースを書いてみる
+    class TestRockPaperScissors(unittest.TestCase):
         # Copilot が提案をします
-        self.assertEqual(judge("グー", "グー"), "あいこです。")
-        self.assertEqual(judge("グー", "チョキ"), "あなたの勝ちです。")
-        self.assertEqual(judge("グー", "パー"), "あなたの負けです。")
-        self.assertEqual(judge("チョキ", "グー"), "あなたの負けです。")
-        self.assertEqual(judge("チョキ", "チョキ"), "あいこです。")
-        self.assertEqual(judge("チョキ", "パー"), "あなたの勝ちです。")
-        self.assertEqual(judge("パー", "グー"), "あなたの勝ちです。")
-        self.assertEqual(judge("パー", "チョキ"), "あなたの負けです。")
-        self.assertEqual(judge("パー", "パー"), "あいこです。")
+        # じゃんけんの勝敗を判定する関数をテストするクラス
+        def test_judge(self):
+            self.assertEqual(judge("グー", "グー"), "あいこです。")
+            self.assertEqual(judge("グー", "チョキ"), "あなたの勝ちです。")
+            self.assertEqual(judge("グー", "パー"), "あなたの負けです。")
+            self.assertEqual(judge("チョキ", "グー"), "あなたの負けです。")
+            self.assertEqual(judge("チョキ", "チョキ"), "あいこです。")
+            self.assertEqual(judge("チョキ", "パー"), "あなたの勝ちです。")     
+            
